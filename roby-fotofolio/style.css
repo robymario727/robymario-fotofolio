@@ -1,0 +1,431 @@
+/* ========================================================
+   ROBY MARIO - PORTOFOLIO SISWA SMK PPLG
+   Modern, Sleek & Responsive Stylesheet
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ========================================================
+   DESIGN TOKENS & VARIABLES
+   ======================================================== */
+:root {
+  /* Color Palette - Premium Slate & Electric Violet/Blue */
+  --bg-body: #090d16;
+  --bg-surface: rgba(17, 24, 39, 0.7);
+  --bg-surface-hover: rgba(30, 41, 59, 0.8);
+  --bg-header: rgba(9, 13, 22, 0.85);
+
+  --accent-primary: #3b82f6;
+  --accent-primary-hover: #2563eb;
+  --accent-secondary: #8b5cf6;
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --accent-gradient-glow: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(139, 92, 246, 0.3);
+
+  /* Typography */
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --container-max: 1060px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-btn: 0 8px 24px -6px rgba(59, 130, 246, 0.5);
+  --shadow-btn-hover: 0 12px 30px -6px rgba(139, 92, 246, 0.6);
+}
+
+/* ========================================================
+   BASE & RESET
+   ======================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-body);
+  background-image: 
+    radial-gradient(circle at 20% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 95%, rgba(14, 165, 233, 0.08) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================================
+   NAVBAR / HEADER
+   ======================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--bg-header);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+header nav {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo / Brand */
+header nav > a {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+header nav > a:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+/* Nav Menu List */
+header nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 12px;
+}
+
+header nav ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+header nav ul li a:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ========================================================
+   MAIN CONTENT WRAPPER
+   ======================================================== */
+main {
+  flex: 1;
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========================================================
+   HERO SECTION (#home)
+   ======================================================== */
+#home {
+  min-height: calc(85vh - 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px 60px;
+  position: relative;
+}
+
+/* Badge status SMK PPLG */
+#home::before {
+  content: '⚡ Siswa SMK Jurusan PPLG';
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+}
+
+#home h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  margin-bottom: 20px;
+  max-width: 850px;
+}
+
+#home p {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-bottom: 12px;
+}
+
+#home p:nth-of-type(2) {
+  color: var(--text-main);
+  font-weight: 500;
+  margin-bottom: 36px;
+}
+
+/* Hero CTA Button: Kenali Saya */
+#home a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--accent-gradient);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 14px 34px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-btn);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#home a:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-btn-hover);
+  filter: brightness(1.08);
+}
+
+#home a:active {
+  transform: translateY(-1px);
+}
+
+/* ========================================================
+   CONTENT SECTIONS (About, Skills, Projects, Contact)
+   ======================================================== */
+section:not(#home) {
+  scroll-margin-top: 96px;
+  margin-bottom: 48px;
+  padding: 48px 40px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+section:not(#home):hover {
+  border-color: var(--border-glow);
+}
+
+/* Section Headings */
+section:not(#home) h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+}
+
+section:not(#home) h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 44px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--accent-gradient);
+}
+
+/* Placeholder notification badge inside empty/in-progress sections */
+section:not(#home) {
+  min-height: 200px;
+}
+
+/* Styling for content inside sections */
+section:not(#home) p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Placeholder card effect only for sections under construction */
+#about::after,
+#skills::after,
+#projects::after {
+  content: 'Sedang disiapkan • Konten akan segera hadir';
+  display: block;
+  margin-top: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ========================================================
+   CONTACT SECTION STYLING (#contact)
+   ======================================================== */
+#contact p {
+  margin-bottom: 20px;
+}
+
+#contact ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+}
+
+#contact ul li {
+  list-style: none;
+}
+
+#contact ul li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+
+#contact ul li a:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* TikTok Specific Glow on Hover */
+#contact ul li a[href*="tiktok"]:hover {
+  border-color: rgba(238, 29, 82, 0.6);
+  box-shadow: 0 10px 24px -6px rgba(238, 29, 82, 0.35);
+  color: #ffffff;
+}
+
+/* Instagram Specific Glow on Hover */
+#contact ul li a[href*="instagram"]:hover {
+  border-color: rgba(225, 48, 108, 0.6);
+  box-shadow: 0 10px 24px -6px rgba(225, 48, 108, 0.35);
+  color: #ffffff;
+}
+
+/* ========================================================
+   FOOTER
+   ======================================================== */
+footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-header);
+  padding: 36px 24px;
+  text-align: center;
+}
+
+footer p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN (Mobile & Tablet)
+   ======================================================== */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    gap: 16px;
+    padding: 14px 18px;
+  }
+
+  header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  header nav ul li a {
+    padding: 6px 12px;
+    font-size: 0.88rem;
+  }
+
+  #home {
+    min-height: 70vh;
+    padding: 50px 16px 40px;
+  }
+
+  #home h1 {
+    font-size: 2.25rem;
+  }
+
+  #home p {
+    font-size: 1rem;
+  }
+
+  #home a {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  section:not(#home) {
+    padding: 32px 20px;
+    margin-bottom: 32px;
+  }
+
+  section:not(#home) h2 {
+    font-size: 1.6rem;
+  }
+}
